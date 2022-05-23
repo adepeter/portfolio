@@ -5,6 +5,7 @@ ENV PYTHONUNBUFFERED=1 PYTHONDONTWRITEBYTECODE=1 USER=${user} DEPLOYMENT_ENVIRON
 RUN apt-get upgrade -y && apt-get update && apt-get install -y \
     nano \
     sudo \
+    curl \
     libffi-dev \
     libssl-dev \
     sqlite3 \
@@ -29,3 +30,4 @@ WORKDIR /srv/http/${user}
 RUN pip install -r requirements.txt --no-warn-script-location
 CMD uwsgi --emperor uwsgi.ini --env DEPLOYMENT_ENVIRONMENT=${DEPLOYMENT_ENVIRONMENT} --uid ${user} --master
 EXPOSE 8000
+HEALTHCHECK --interval=5s --timeout=5s --retries=3 CMD curl -f http://localhost:8000
