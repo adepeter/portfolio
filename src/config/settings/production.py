@@ -1,6 +1,6 @@
 from .staging import *
 
-SECRET_KEY = os.environ.get('STATESNG_SECRET_KEY')
+SECRET_KEY = os.environ.get('BACKEND_SECRET_KEY', 'django-secure-rz2zx%7x38d7vw6sy=&93qwyjax@-9#!cu8hjyxy8hj=7)4uz2')
 
 DEBUG = False
 
