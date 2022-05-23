@@ -1,0 +1,9 @@
+location /static/ {
+  alias /srv/ftp/adepeter/static/;
+  add_header Access-Control-Allow-Origin *;
+}
+
+location /media/ {
+  alias /srv/ftp/adepeter/media/;
+  add_header Access-Control-Allow-Origin *;
+}
