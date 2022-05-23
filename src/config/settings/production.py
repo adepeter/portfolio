@@ -36,7 +36,3 @@ SECURE_SSL_REDIRECT = True
 USE_X_FORWARDED_HOST = True
 
 USE_X_FORWARDED_PORT = True
-
-
-
-ALLOWED_HOSTS = ['statesng.com.ng', 'api.statesng.com.ng', 'cpanel.statesng.com.ng', 'pages.statesng.com.ng', 'www.statesng.com.ng', 'admin.statesng.com.ng']

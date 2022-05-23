@@ -53,15 +53,16 @@ services:
     env_file:
       - ./configs/envs/nginxproxy.env
     environment:
+      - SSL_POLICY=Mozilla-Modern
       - ENABLE_IPV6=true
     volumes:
-      - nginxproxy-certs:/etc/nginx/certs:ro
-      - nginxproxy-html:/usr/share/nginx/html
-      - /var/run/docker.sock:/tmp/docker.sock:ro
-      - ./configs/nginxproxy/conf.d:/etc/nginx/conf.d
-      - ./configs/nginxproxy/vhost.d:/etc/nginx/vhost.d
-      - ./src/static:/srv/ftp/${USER:-backend}/static
-      - ./src/media:/srv/ftp/${USER:-backend}/media
+      - "nginxproxy-certs:/etc/nginx/certs:ro"
+      - "nginxproxy-html:/usr/share/nginx/html"
+      - "/var/run/docker.sock:/tmp/docker.sock:ro"
+      - "./configs/nginxproxy/conf.d:/etc/nginx/conf.d"
+      - "./configs/nginxproxy/vhost.d:/etc/nginx/vhost.d"
+      - "./src/static:/srv/ftp/${USER:-backend}/static"
+      - "./src/media:/srv/ftp/${USER:-backend}/media"
     ports:
       - "80:80"
       - "443:443"
@@ -91,7 +92,6 @@ services:
       - VIRTUAL_PORT=5050
       - PGADMIN_LISTEN_PORT=5050
     volumes:
-      - nginxproxy-certs:/certs
       - pgadmin4_data:/var/lib/pgadmin
       - pgadmin4_root:/root/.pgadmin
     networks:

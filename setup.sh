@@ -266,7 +266,7 @@ setup_backend() {
 
   local pgadmin4_env_file="${ENV_FILES_DIR}/${ARRAY_OF_ENV_FILES[pgadmin]}"
   local pgadmin4_domain="${PGADMIN4_SUBDOMAIN_NAME}.${domain_name}"
-  local pgadmin4_domain="${pgadmin4_domain},www.${pgadmin4_domain}"
+  local pgadmin4_domain="${pgadmin4_domain}"
   echo -e "VIRTUAL_HOST=${pgadmin4_domain}\nLETSENCRYPT_HOST=${pgadmin4_domain}" >>"${pgadmin4_env_file}"
 
   setup_allowed_hosts "$ALLOWED_DOMAINS"
