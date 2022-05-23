@@ -22,7 +22,7 @@ RUN apt-get upgrade -y && apt-get update && apt-get install -y \
 RUN useradd -m ${user} && \
     echo "${user}:${user}" | chpasswd && \
     adduser ${user} sudo && \
-    pip install --upgrade pip
+    pip install --upgrade pip uwsgi
 USER ${user}
 COPY --chown=${user} . /srv/http/${user}
 WORKDIR /srv/http/${user}
