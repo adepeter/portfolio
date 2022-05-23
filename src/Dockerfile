@@ -29,5 +29,5 @@ COPY --chown=${user} . /srv/http/${user}
 WORKDIR /srv/http/${user}
 RUN pip install -r requirements.txt --no-warn-script-location
 CMD uwsgi --emperor uwsgi.ini --env DEPLOYMENT_ENVIRONMENT=${DEPLOYMENT_ENVIRONMENT} --uid ${user} --master
-EXPOSE 8000
 HEALTHCHECK --interval=5s --timeout=5s --retries=3 CMD curl -f http://localhost:8000/home/health/
+EXPOSE 8000
